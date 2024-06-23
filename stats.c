@@ -9,13 +9,16 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.c
+ * @brief Implementation of statistical analysis functions on an array. 
  *
- * <Add Extended Description Here>
+ * This file contains the implementation of various statistical functions for 
+ * an array of integers. Functions include finding the minimum, maximum, mean, 
+ * and median values, sorting through the array 
+ * using Quicksort Algorithm implementation
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author David Montoto
+ * @date 06/23/2024
  *
  */
 
