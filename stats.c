@@ -43,4 +43,72 @@ void main() {
 
 }
 
-/* Add other Implementation File Code Here */
+void print_statistic(int arr[], int length) {
+  //call all functions then print values 
+}
+
+void print_array(int arr[], int length) {
+  for (int i = 0; i < length; i++) {
+    printf(arr[i]);
+  }
+}
+
+double find_median(int arr[], int length) {
+  if (length == 0) {
+    return 0.0;
+  }
+  int sum = 0;
+  for (int i = 0; i < length; i++) {
+    sum += arr[i];
+  }
+  double median = sum / length;
+  return median;
+}
+
+void swap(int *a, int *b) {
+  int temp = *a;
+  *a = *b;
+  *b = temp;
+}
+
+int MedianOfThree(int arr[], int low, int high) {
+  int mid = low + (high - low) / 2;
+  if (arr[low] > arr[mid]) {
+    swap(&arr[low], &arr[mid]);
+  } if (arr[low] > arr[high]) {
+    swap(&arr[low], &arr[high]);
+  } if (arr[mid] > arr[high]) {
+    swap(&arr[mid], arr[high]);
+  }
+  return mid;
+}
+
+int partition(int arr[], int low, int high) {
+  int pivotIndex = medianOfThree(arr, low, high);
+  int pivot = arr[pivotIndex];
+  swap(&arr[pivotIndex], &arr[high]); // simply moves pivot to end of array
+
+  int i = low - 1;
+  for (int j = low; j < high; ++j) {
+    if (arr[j] <= pivot) {
+      ++i;
+      swap(&arr[i], &arr[j]);
+    }
+  }
+  swap(&arr[i + 1], &arr[high]); // Move pivot into correct place
+  return i + 1;
+}
+
+void quicksort(int arr[], int low, int high) {
+  if (low < high) {
+    int pivotIndex = partition(arr, low, high);
+    quicksort(arr, low, pivotIndex - 1);
+    quicksort(arr, pivotIndex + 1, high);
+  }
+}
+
+double find_mean(int arr[], int length) {
+  if (length == 0) {
+    return 0.0;
+  }
+}
