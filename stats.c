@@ -41,6 +41,8 @@ int main() {
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
   print_statistic(test, 40);
+  sort_array(test, 40);
+  print_array(test, 40);
   return 0;
 }
 
@@ -164,4 +166,9 @@ int find_minimum(int arr[], int length) {
 
 void sort_array(int arr[], int length) {
   quicksort(arr, 0, length - 1);
+  int j = length - 1;
+  for (int i = 0; i < j; i++) {
+    swap(&arr[i], &arr[j]);
+    j= j - 1;
+  }
 }
