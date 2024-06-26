@@ -44,7 +44,14 @@ void main() {
 }
 
 void print_statistic(int arr[], int length) {
-  //call all functions then print values 
+  double median = find_median(arr, length);
+  printf("Median: %c", median);
+  double mean = find_mean(arr, length);
+  printf("Mean: %c", mean);
+  int maximum = find_maximum(arr, length);
+  printf("Maximum: %c", maximum);
+  int minimum = find_minimum(arr, length);
+  printf("Minimum: %c", minimum);
 }
 
 void print_array(int arr[], int length) {
@@ -78,7 +85,7 @@ int MedianOfThree(int arr[], int low, int high) {
   } if (arr[low] > arr[high]) {
     swap(&arr[low], &arr[high]);
   } if (arr[mid] > arr[high]) {
-    swap(&arr[mid], arr[high]);
+    swap(&arr[mid], &arr[high]);
   }
   return mid;
 }
@@ -108,7 +115,52 @@ void quicksort(int arr[], int low, int high) {
 }
 
 double find_mean(int arr[], int length) {
+  int mean = 0.0;
   if (length == 0) {
-    return 0.0;
+    return mean;
   }
+  quicksort(arr, 0, length - 1);
+  if (length % 2 == 0) {
+    mean = arr[length / 2] + arr[(length / 2) - 1];
+    return mean / 2;
+  } else {
+    mean = arr[length / 2];
+    return mean;
+  }
+}
+
+int find_maximum(int arr[], int length) {
+  if (length == 0) {
+    return 0;
+  } 
+  int maximum = arr[0];
+  if (length == 1) {
+    return maximum;
+  }
+  for (int i = 1; i < length; i++) {
+    if (maximum < arr[i]) {
+      maximum = arr[i];
+    }
+  }
+  return maximum;
+}
+
+int find_minimum(int arr[], int length) {
+  if (length == 0) {
+    return 0;
+  } 
+  int minimum = arr[0];
+  if (length == 1) {
+    return minimum;
+  }
+  for (int i = 1; i < length; i++) {
+    if (minimum > arr[i]) {
+      minimum = arr[i];
+    }
+  }
+  return minimum;
+}
+
+void sort_array(int arr[], int length) {
+  quicksort(arr, 0, length - 1);
 }
