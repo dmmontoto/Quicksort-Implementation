@@ -34,4 +34,5 @@ The program includes the following functionalities:
 To compile the program, use the GCC compiler:
 
 ```sh
-gcc -o stats stats.c
+gcc -o stats.out stats.c
+./stats.out
